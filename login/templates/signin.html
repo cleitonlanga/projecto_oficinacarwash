@@ -1,0 +1,43 @@
+{% load static %} {% block 'head' %}
+<link rel="stylesheet" href="{% static 'login/css/signin.css' %}" />
+<link rel="stylesheet" href="{% static 'servicos/css/listar_servicos.css' %}" />
+{% endblock %} {% block 'dashboard' %}
+<br />
+<br />
+<div class="container">
+  <form action="{% url 'signin' %}" method="POST">
+    {% csrf_token %}
+    <br />
+    <br />
+    <br />
+    <br />
+    <div class="column">
+      <h1>Login</h1>
+      <div class="col-md">
+        <input
+          type="text"
+          placeholder="Nome do usuário"
+          name="username"
+          value="{{username}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <input
+          type="password"
+          placeholder="Palavra-passe"
+          name="palavra-passe"
+          value="{{password}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <button type="submit">Entrar</button>
+      </div>
+      <div class="col-md">
+        <p>Criar uma conta <a href="{% url 'signup' %}"> Clique aqui</a></p>
+      </div>
+    </div>
+  </form>
+</div>
+{% endblock %}

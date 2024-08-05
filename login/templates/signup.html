@@ -1,0 +1,134 @@
+{% load static %} {% block 'head' %}
+<link rel="stylesheet" href="{% static 'login/css/signup.css' %}" />
+<link rel="stylesheet" href="{% static 'servicos/css/listar_servicos.css' %}" />
+<link
+  href="https://unpkg.com/css.gg@2.0.0/icons/css/password.css"
+  rel="stylesheet"
+/>
+{% endblock %} {% block 'dashboard' %}
+<br />
+<br />
+<br />
+<div class="container">
+  <form id="signupForm" action="{% url 'signup' %}" method="POST">
+    {% csrf_token %}
+    <div class="column">
+      <h1>Cadastro</h1>
+      <div class="col-md">
+        <p>Username</p>
+        <input type="text" placeholder="Username" name="username" required />
+      </div>
+      <div class="col-md">
+        <p>Nome</p>
+        <input
+          type="text"
+          placeholder="Primeiro nome"
+          name="nome"
+          value="{{nome}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Sobrenome</p>
+        <input
+          type="text"
+          placeholder="Sobrenome"
+          name="Sobrenome"
+          value="{{sobrenome}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Bilhete de identidade</p>
+        <input
+          type="text"
+          placeholder="Bilhete de identidade"
+          name="BI"
+          value="{{bi}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Profissão</p>
+        <input
+          type="text"
+          placeholder="Profissão"
+          name="Profissão"
+          value="{{profissao}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Data de nascimento</p>
+        <input
+          type="datetime"
+          placeholder="Data de nascimento"
+          name="data_nascimento"
+          value="{{birthday}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Nacionalidade</p>
+        <input
+          type="text"
+          placeholder="Nacionalidade"
+          name="nascionalidade"
+          value="{{nationality}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Provincia</p>
+        <input
+          type="text"
+          placeholder="Provincía"
+          name="provincia"
+          value="{{province}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>cidade</p>
+        <input
+          type="text"
+          placeholder="cidade"
+          name="cidade"
+          value="{{city}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Contacto</p>
+        <input
+          type="text"
+          placeholder="contacto"
+          name="contacto"
+          value="{{contact}}"
+          required
+        />
+      </div>
+      <div class="col-md">
+        <p>Palavra-passe</p>
+        <input
+          type="text"
+          placeholder="Palavra-passe"
+          name="palavra-passe"
+          value="{{password}}"
+          required
+        />
+      </div>
+      <div onclick="" class="salvar">
+        <button type="submit" onclick="SubmitForm()" value="Cadastrar" class="btn-principal">
+          Salvar
+        </button>
+      </div>
+      <div class="cadastro">
+        Já é cadastrado?
+        <a href="{% url  'signin' %}">Clique aqui</a>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="{% static 'login/js/signup.js' %}"></script>
+{% endblock %}
